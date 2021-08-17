@@ -54,7 +54,7 @@ var_estado1 = ss(P1);
 var_estado2 = ss(P2);
 
 %% Gráficas para comprobar los modelos
-y = lsim(modelocorriente2,ENTRADA,Tiempo);
+y = lsim(modelocorriente1,ENTRADA,Tiempo);
 plot(Tiempo, ENTRADA, Tiempo, CORRIENTE, Tiempo, y)
 grid
 title('Verificación de la respuesta del modelo de corriente')
@@ -62,7 +62,7 @@ xlabel('Tiempo [s]')
 ylabel('Corriente')
 legend('Entrada','Corriente','Modelo')
 
-% y = lsim(modelovelocidad2,ENTRADA,Tiempo);
+% y = lsim(modelovelocidad1,ENTRADA,Tiempo);
 % plot(Tiempo, ENTRADA, Tiempo, VELOCIDAD, Tiempo, y)
 % grid
 % title('Verificación de la respuesta del modelo de velocidad')
