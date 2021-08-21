@@ -2,15 +2,14 @@
 Ra=0.5;
 La=0.0015;
 kb=0.03;
-kb=0.03;
 km=0.03;
 Bm=0.2;
 Jm=0.00025;
 kt=0.75;
-m1=0.5;
-m3=1;
-mt=4.5;
-L1=0.4;
+m1=0.022;
+m3=0.092;
+mt=0.149;
+L1=0.31;
 g=9.81;
 beta=0.01;
 
@@ -24,9 +23,10 @@ B=[1/La; 0;0;0];
 C=[0 0 1 0];
 D=[0];
 
-%Creación de nuestra repretación matricial
+%Creación de nuestra representación matricial
 sysss=ss(A, B, C, D);
 
 %Simulación para obtener la respuesta ante el escalón e impulso
 step(sysss);
+sisotool(sysss); %para generar un entorno donde podamos crear el controlador del sistema
 %%%impulse(sysss)
