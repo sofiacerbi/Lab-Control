@@ -24,7 +24,7 @@ opts.EmptyLineRule = "read";
 opts = setvaropts(opts, ["Tiempo", "CORRIENTE", "VELOCIDAD", "ENTRADA"], "FillValue", 0);
 
 % Import the data
-tbl = readtable("C:\Users\sofia\OneDrive - Estudiantes ITCR\TEC\2021\Segundo Semestre\Lab de Control\Motor CD\MotorCD_Experimento12Agosto2021_Gr2.csv", opts);
+tbl = readtable("C:\Users\sofia\OneDrive - Estudiantes ITCR\TEC\2021\Segundo Semestre\Lab de Control\Lab-Control\Motor_CD\Modelo\MotorCD_Experimento12Agosto2021_Gr2.csv", opts);
 
 %% Convert to output type
 Tiempo = tbl.Tiempo;
@@ -42,30 +42,30 @@ Motor.inputname = {'ENTRADA'};
 Motor.outputname = {'VELOCIDAD';'CORRIENTE'};
 
 %% Obtención de los modelos
-M1 = zpk(P1);
-modelovelocidad1 = M1(1,1);
-modelocorriente1 = M1(2,1);
+Modelo1 = zpk(M1);
+modelovelocidad1 = Modelo1(1,1)
+modelocorriente1 = Modelo1(2,1)
 
-M2 = zpk(P2);
-modelovelocidad2 = M2(1,1);
-modelocorriente2 = M2(2,1);
+Modelo2 = zpk(M2);
+modelovelocidad2 = Modelo2(1,1)
+modelocorriente2 = Modelo2(2,1)
 
-var_estado1 = ss(P1);
-var_estado2 = ss(P2);
+var_estado1 = ss(M1);
+var_estado2 = ss(M2);
 
 %% Gráficas para comprobar los modelos
-y = lsim(modelocorriente1,ENTRADA,Tiempo);
-plot(Tiempo, ENTRADA, Tiempo, CORRIENTE, Tiempo, y)
-grid
-title('Verificación de la respuesta del modelo de corriente')
-xlabel('Tiempo [s]')
-ylabel('Corriente')
-legend('Entrada','Corriente','Modelo')
-
-% y = lsim(modelovelocidad1,ENTRADA,Tiempo);
-% plot(Tiempo, ENTRADA, Tiempo, VELOCIDAD, Tiempo, y)
+% y = lsim(modelocorriente1,ENTRADA,Tiempo);
+% plot(Tiempo, ENTRADA, Tiempo, CORRIENTE, Tiempo, y)
 % grid
-% title('Verificación de la respuesta del modelo de velocidad')
+% title('Verificación de la respuesta del modelo de corriente')
 % xlabel('Tiempo [s]')
-% ylabel('Velocidad')
-% legend('Entrada','Velocidad','Modelo')
+% ylabel('Corriente')
+% legend('Entrada','Corriente','Modelo')
+
+y = lsim(modelovelocidad2,ENTRADA,Tiempo);
+plot(Tiempo, ENTRADA, Tiempo, VELOCIDAD, Tiempo, y)
+grid
+title('Verificación de la respuesta del modelo de velocidad')
+xlabel('Tiempo [s]')
+ylabel('Velocidad')
+legend('Entrada','Velocidad','Modelo')
