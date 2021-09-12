@@ -24,8 +24,8 @@ opts.EmptyLineRule = "read";
 opts = setvaropts(opts, ["Tiempo", "CONTROL" , "VELOCIDA", "REFERENC"], "FillValue", 0);
 
 % Import the data
-tbl = readtable("C:\Users\sofia\Downloads\MotorCD_EquipoAPerturbaciónTeclaE.CSV", opts);
-
+tbl = readtable("C:\Users\sofia\OneDrive - Estudiantes ITCR\TEC\2021\Segundo Semestre\Lab de Control\Lab-Control\Motor_CD\Controlador\MotorCD_EquipoAPerturbacionManual.CSV", opts);
+tbl2 = readtable("C:\Users\sofia\OneDrive - Estudiantes ITCR\TEC\2021\Segundo Semestre\Lab de Control\Lab-Control\Motor_CD\Controlador\MotorCD_EquipoAPerturbacionTeclaE.CSV", opts);
 
 %% Clear temporary variables
 clear opts
