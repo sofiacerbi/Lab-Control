@@ -18,7 +18,7 @@ Ki = -Ks(5);
 eig(As-Bs*Ks);
 
 %% Por ubicación de polos
-P = [-0.55+0.48i -0.55-0.48i -15 -14 -13];
+P = [-0.55+0.495i -0.55-0.495i -15 -14 -13];
 KsREI = place(As, Bs, P);
 KREI = KsREI(1:4);
 KiREI = -KsREI(5);
