@@ -9,17 +9,18 @@ As = [A [0;0;0;0];-C 0];
 Bs =[B;0];
 
 %% Por LQR
-Q = eye(5)*100;
+Q = eye(5);
 Q(1,1) = 500;
+Q(3,3) = 500;
 R = 1;
-Ks = lqr(As, Bs, Q, R);
-K = Ks(1:4);
-Ki = -Ks(5);
-eig(As-Bs*Ks);
+KsLQR = lqr(As, Bs, Q, R);
+KLQR = KsLQR(1:4);
+KiLQR = -KsLQR(5);
+eig(As-Bs*KsLQR);
 
 %% Por ubicación de polos
-P = [-0.55+0.495i -0.55-0.495i -15 -14 -13];
-KsREI = place(As, Bs, P);
-KREI = KsREI(1:4);
-KiREI = -KsREI(5);
+P = [-1.15+0.18i -1.15-0.18i -4 -6 -8];
+KsUP = place(As, Bs, P);
+KUP = KsUP(1:4);
+KiUP = -KsUP(5);
 
