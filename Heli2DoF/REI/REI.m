@@ -15,7 +15,7 @@ Q(3,3) = 100;
 Q(4,4) = 100;
 Q(5,5) = 1900;
 Q(6,6) = 100;
-R = 1;
+R = 2;
 
 KsLQR = lqr(As, Bs, Q, R);
 KLQR = KsLQR(:,1:4)
@@ -23,7 +23,7 @@ KiLQR = -KsLQR(:,5:6)
 eig(As-Bs*KsLQR);
 
 %% Por ubicación de polos
-P = [-0.541+0.1i -0.541-0.1i -2 -2.5 -3 -3.5];
+P = [-0.541+0.1i -0.541-0.1i -1 -1.5 -2 -2.5];
 
 KsUP = place(As, Bs, P);
 KUP = KsUP(:,1:4)
