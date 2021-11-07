@@ -18,13 +18,15 @@ Q(6,6) = 100;
 R = 2;
 
 KsLQR = lqr(As, Bs, Q, R);
-KLQR = KsLQR(:,1:4)
-KiLQR = -KsLQR(:,5:6)
-eig(As-Bs*KsLQR);
+KLQR = KsLQR(:,1:4);
+KiLQR = -KsLQR(:,5:6);
+
+[V,D] = eig(As-Bs*KsLQR);
+polosLQR = diag(D);
 
 %% Por ubicación de polos
-P = [-0.541+0.1i -0.541-0.1i -1 -1.5 -2 -2.5];
+polosUP = [-0.445+0.112i -0.445-0.112i -1.4 -1.5 -1.6 -1.7];
 
-KsUP = place(As, Bs, P);
+KsUP = place(As, Bs, polosUP);
 KUP = KsUP(:,1:4)
 KiUP = -KsUP(:,5:6)
