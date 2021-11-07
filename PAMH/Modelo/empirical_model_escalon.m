@@ -25,8 +25,8 @@ tbl = readtable("C:\Users\sofia\OneDrive - Estudiantes ITCR\TEC\2021\Segundo Sem
 
 %% Convert to output type
 Tiempo = tbl.Tiempo;
-ESTIMULO = tbl.ESTIMULO;
-ANGULO = tbl.ANGULO;
+ESTIMULO_E = tbl.ESTIMULO;
+ANGULO_E = tbl.ANGULO;
 
 %% Clear temporary variables
 clear opts tbl
