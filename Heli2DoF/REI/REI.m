@@ -26,7 +26,6 @@ polosLQR = diag(D);
 
 %% Por ubicación de polos
 polosUP = [-0.445+0.112i -0.445-0.112i -1.4 -1.5 -1.6 -1.7];
-
 KsUP = place(As, Bs, polosUP);
-KUP = KsUP(:,1:4)
-KiUP = -KsUP(:,5:6)
+KUP = KsUP(:,1:4);
+KiUP = -KsUP(:,5:6);
